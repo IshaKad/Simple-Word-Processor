@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Untitled.txt - Simple Word Processor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- EDITOR SCREEN -->
+    <div id="editor-view">
+
+        <aside id="outline-panel" class="hidden">
+            <div class="outline-header">
+                <h2>Outline</h2>
+            </div>
+
+            <div id="outline-list"></div>
+        </aside>
+
+        <aside id="utility-panel" class="hidden">
+            <div class="utility-header">
+                <h2 id="utility-title">Panel</h2>
+                <button id="close-utility-btn">Close</button>
+            </div>
+
+            <div id="scratch-panel" class="utility-section hidden">
+                <textarea
+                    id="scratch-pad"
+                    placeholder="Quick notes"
+                ></textarea>
+            </div>
+
+            <div id="flashcards-panel" class="utility-section hidden">
+                <div id="flashcards-list"></div>
+            </div>
+
+            <div id="history-panel" class="utility-section hidden">
+                <div id="history-list"></div>
+            </div>
+        </aside>
+
+        <main id="writing-area">
+            <div id="format-toolbar">
+                <button id="bold-btn" title="Bold">
+                    B
+                </button>
+
+                <button id="italic-btn" title="Italic">
+                    I
+                </button>
+
+                <button id="underline-btn" title="Underline">
+                    U
+                </button>
+
+                <select id="font-family-select" title="Font family">
+                    <option value="Segoe UI">Segoe UI</option>
+                    <option value="Georgia">Georgia</option>
+                    <option value="Times New Roman">Times New Roman</option>
+                    <option value="Inter">Inter</option>
+                    <option value="Calibri">Calibri</option>
+                    <option value="Courier New">Courier New</option>
+                </select>
+
+                <select id="line-spacing-select" title="Line spacing">
+                    <option value="1">1.0</option>
+                    <option value="1.15">1.15</option>
+                    <option value="1.5" selected>1.5</option>
+                    <option value="2">2.0</option>
+                </select>
+
+                <select id="theme-select" title="Theme">
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                    <option value="sepia">Sepia</option>
+                    <option value="midnight">Midnight</option>
+                </select>
+            </div>
+
+            <div id="search-panel" class="hidden">
+
+                <input
+                    id="find-input"
+                    type="text"
+                    placeholder="Find"
+                >
+
+                <span id="match-count">
+                    0 matches
+                </span>
+
+                <button id="find-prev-btn" title="Previous match">
+                    Previous
+                </button>
+
+                <button id="find-next-btn" title="Next match">
+                    Next
+                </button>
+
+                <button id="close-search-btn" title="Close search">
+                    Close
+                </button>
+
+                <div id="replace-row" class="hidden">
+                    <input
+                        id="replace-input"
+                        type="text"
+                        placeholder="Replace"
+                    >
+
+                    <button id="replace-one-btn">
+                        Replace One
+                    </button>
+
+                    <button id="replace-all-btn">
+                        Replace All
+                    </button>
+                </div>
+
+            </div>
+
+            <div id="editor" contenteditable="true" spellcheck="true"></div>
+        </main>
+
+    </div>
+
+    <!-- RECENT FILES SCREEN -->
+    <div id="recent-view" class="hidden">
+
+        <div class="recent-header">
+            <h2>Recent Files</h2>
+            <button id="back-btn">Back</button>
+        </div>
+
+        <div id="recent-files-list"></div>
+
+    </div>
+
+    <div id="status-bar">
+
+        <span id="current-file">
+            Untitled.txt
+        </span>
+
+        <span id="word-count">
+            Words: 0
+        </span>
+
+        <span id="char-count">
+            Characters: 0
+        </span>
+
+        <span id="reading-time">
+            Reading Time: 1 min
+        </span>
+
+        <span id="autosave-status">
+            Auto Save: waiting for first save
+        </span>
+
+        <div id="zoom-container">
+
+            <input
+                type="range"
+                id="zoom-slider"
+                min="50"
+                max="200"
+                value="100"
+            >
+
+            <span id="zoom-value">
+                100%
+            </span>
+
+        </div>
+
+    </div>
+
+    <script src="renderer.js"></script>
+
+</body>
+</html>
